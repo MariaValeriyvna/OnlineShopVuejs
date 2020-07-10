@@ -1,5 +1,5 @@
-function Word(mes1, mes2) {
+function word(mes1, mes2) {
   alert(mes1 + mes2);
 }
 
-export default Word;
+export default word;
