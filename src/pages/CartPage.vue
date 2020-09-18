@@ -26,7 +26,10 @@
       <form class="cart__form form" action="#" method="POST">
         <div class="cart__field">
           <ul class="cart__list">
-            <CartItem v-for="item in products" :key="item.productId" :item="item" />
+            <CartItem v-for="item in products"
+            :key="item.productId"
+            :item="item"
+            @deleteFromCart=deleteFromCart(item.productId) />
           </ul>
         </div>
 
@@ -49,15 +52,21 @@
 </template>
 
 <script>
-import numberFormat from '@/helpers/numberformat';
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import CartItem from '@/components/CartItem.vue';
+import numberFormat from '@/helpers/numberformat';
 
 export default {
   filters: { numberFormat },
   components: { CartItem },
   computed: {
     ...mapGetters({ products: 'cartDetailProducts', totalPrice: 'cartTotalPrice' }),
+  },
+  methods: {
+    ...mapActions(['deleteCartProduct']),
+    deleteFromCart(productId) {
+      this.deleteCartProduct({ productId });
+    },
   },
 };
 </script>
