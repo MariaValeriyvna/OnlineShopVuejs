@@ -108,12 +108,14 @@ export default new Vuex.Store({
         });
     },
     deleteCartProduct(context, { productId }) {
-      console.log(context.state.userAccessKey, { productId });
-      return axios.delete(`${API_BASE_URL}/api/baskets/products`, {
-        productId,
-      }, {
+      axios.request({
+        url: 'http://vue-study.dev.creonit.ru/api/baskets/products',
+        method: 'delete',
         params: {
-          userAccessKey: context.state.userAccessKey,
+          userAccessKey: this.state.userAccessKey,
+        },
+        data: {
+          productId,
         },
       })
         .then((response) => {
