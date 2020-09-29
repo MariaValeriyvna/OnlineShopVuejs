@@ -2,8 +2,7 @@
     <li class="cart__item product"
             :key="item.productId">
               <div class="product__pic">
-                <img :src="item.product.image" width="120" height="120"
-                srcset="img/phone-square-3@2x.jpg 2x" alt="item.product.title">
+                <img :src="item.product.image" width="120" height="120" alt="item.product.title">
               </div>
               <h3 class="product__title">
                 {{item.product.title}}

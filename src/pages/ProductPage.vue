@@ -3,7 +3,7 @@
     <Preloader style= "top: 10%; left: 50%;" />Загрузка товара...</main>
   <main class="content container" v-else-if="!productData">Не удалось загрузить товар</main>
   <main class="content container" v-else>
-    <Preloader v-show="productAddSending" style= "top: 0; right: 20px;" />
+    <Preloader  v-show="productAddSending" style= "top: 0; right: -1%" />
     <div class="content__top">
       <ul class="breadcrumbs">
         <li class="breadcrumbs__item">
@@ -50,7 +50,7 @@
             <div class="item__row">
               <div class="form__counter">
                 <button type="button" aria-label="Убрать один товар"
-                 @click.prevent="--productAmount" :disabled="productAmount===0">
+                 @click.prevent="--productAmount" :disabled="productAmount=== 1">
                   <svg width="12" height="12" fill="currentColor">
                     <use xlink:href="#icon-minus" />
                   </svg>
